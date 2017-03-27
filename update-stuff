@@ -1,6 +1,11 @@
 #!/usr/bin/env bash
 set -e
 
+function iscommand
+{
+  hash "${1}" 2>/dev/null
+}
+
 function declare
 {
   echo "----------------------------------------"
@@ -8,10 +13,20 @@ function declare
   echo "----------------------------------------"
 }
 
-declare "HomeBrew"
-brew update && brew upgrade
-declare "NPM"
-npm install npm@latest -g
-npm update -g
-declare "Atom Packages"
-apm update --no-confirm && apm upgrade --no-confirm
+if iscommand brew; then
+  declare "HomeBrew"
+  brew update && brew upgrade
+fi
+if iscommand apt-get; then
+  declare "apt-get"
+  sudo apt-get update && sudo apt-get upgrade
+fi
+if iscommand npm; then
+  declare "NPM"
+  npm install npm@latest -g
+  npm update -g
+fi
+if iscommand apm; then
+  declare "Atom Packages"
+  apm update --no-confirm && apm upgrade --no-confirm
+fi
