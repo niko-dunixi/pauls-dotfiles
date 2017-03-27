@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+set -e
+
+function declare
+{
+  echo "----------------------------------------"
+  echo "-  Updating ${@}"
+  echo "----------------------------------------"
+}
+
+declare "HomeBrew"
+brew update && brew upgrade
+declare "NPM"
+npm install npm@latest -g
+npm update -g
+declare "Atom Packages"
+apm update --no-confirm && apm upgrade --no-confirm
