@@ -179,4 +179,4 @@ $RECYCLE.BIN/
 # End of https://www.gitignore.io/api/maven,java,osx,windows,linux,netbeans,eclipse
 _EOIGNORE_
 
-echo "Set ./.gitignore to ignore java, maven, eclispe, netbeans, intellij and os-specific files."
+echo "Set ./.gitignore to ignore java, maven, eclipse, netbeans, intellij and os-specific files."
