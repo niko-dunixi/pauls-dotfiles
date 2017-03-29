@@ -28,5 +28,5 @@ if iscommand npm; then
 fi
 if iscommand apm; then
   declare "Atom Packages"
-  apm update --no-confirm && apm upgrade --no-confirm
+  apm update --no-confirm
 fi
