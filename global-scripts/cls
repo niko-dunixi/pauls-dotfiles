@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+# Clearing twice creates a break in the terminal that is easier to see than
+# a single clear when you scroll through terminal history. Note: this doesn't
+# seem to work on osx, while it does on ubuntu. If nothing else, it's short-
+# hand for clear.
+
+clear && clear
