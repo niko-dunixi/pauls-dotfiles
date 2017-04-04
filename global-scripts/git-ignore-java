@@ -5,7 +5,8 @@ cat > ./.gitignore <<_EOIGNORE_
 # Paul's intellij ignore rules.
 *.iml
 .idea
-
+*.ipr
+*.iws
 
 # Created by https://www.gitignore.io/api/maven,gradle,java,osx,windows,linux,netbeans,eclipse
 
