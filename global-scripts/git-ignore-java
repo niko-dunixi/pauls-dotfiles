@@ -6,7 +6,8 @@ cat > ./.gitignore <<_EOIGNORE_
 *.iml
 .idea
 
-# Created by https://www.gitignore.io/api/maven,java,osx,windows,linux,netbeans,eclipse
+
+# Created by https://www.gitignore.io/api/maven,gradle,java,osx,windows,linux,netbeans,eclipse
 
 ### Eclipse ###
 
@@ -176,7 +177,23 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
-# End of https://www.gitignore.io/api/maven,java,osx,windows,linux,netbeans,eclipse
+### Gradle ###
+.gradle
+/build/
+
+# Ignore Gradle GUI config
+gradle-app.setting
+
+# Avoid ignoring Gradle wrapper jar file (.jar files are usually ignored)
+!gradle-wrapper.jar
+
+# Cache of project
+.gradletasknamecache
+
+# # Work around https://youtrack.jetbrains.com/issue/IDEA-116898
+# gradle/wrapper/gradle-wrapper.properties
+
+# End of https://www.gitignore.io/api/maven,gradle,java,osx,windows,linux,netbeans,eclipse
 _EOIGNORE_
 
 echo "Set ./.gitignore to ignore java, maven, eclipse, netbeans, intellij and os-specific files."
