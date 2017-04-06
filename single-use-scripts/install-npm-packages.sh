@@ -17,7 +17,7 @@ echo "Checking if NPM packages are installed is a costly"
 echo "opperation, so this script is slow because of NPM"
 echo ""
 
-PACKAGES=( '@angular/cli' 'splash-cli' 'ungit' )
+PACKAGES=( '@angular/cli' 'splash-cli' 'ungit' 'grunt' )
 for i in "${PACKAGES[@]}"; do
   install_if_missing "${i}"
 done
