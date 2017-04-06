@@ -8,7 +8,7 @@ else
   echo "Homebrew installed, moving on to packages."
 fi
 brew update && brew upgrade
-PACKAGES=( 'bash-completion' 'brew-cask-completion' 'm-cli' 'wget' 'coreutils' 'chromedriver' 'boost' 'boost-python' 'exercism' 'gradle' 'imagemagick' 'graphviz' 'git' 'maven' 'clang-format' 'node' 'tree' 'cmake' )
+PACKAGES=( 'bash-completion' 'brew-cask-completion' 'm-cli' 'wget' 'coreutils' 'chromedriver' 'boost' 'boost-python' 'exercism' 'gradle' 'imagemagick' 'graphviz' 'git' 'git-secrets' 'maven' 'clang-format' 'node' 'tree' 'cmake' )
 CASK_PACKAGES=( 'atom' 'docker' 'kitematic' 'vagrant' 'firefox' )
 
 function enterkey
