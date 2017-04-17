@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 set -e
-SCRIPTS=( 'git-ignore-java' 'update-stuff' 'watch-poms' 'cls' )
+SCRIPTS=( 'git-ignore-java' 'update-stuff' 'watch-poms' 'cls' 'mvn-get-sources' )
 for i in "${SCRIPTS[@]}"; do
 	if [ -L "/usr/local/bin/${i}" ]
 	then
