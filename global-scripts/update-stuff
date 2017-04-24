@@ -13,6 +13,9 @@ function declare
   echo "----------------------------------------"
 }
 
+clear
+date
+
 if iscommand brew; then
   declare "HomeBrew"
   brew update && brew upgrade
