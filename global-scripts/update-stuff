@@ -33,3 +33,7 @@ if iscommand apm; then
   declare "Atom Packages"
   apm update --no-confirm
 fi
+if iscommand exercism; then
+  declare "Exercism"
+  exercism upgrade
+fi
