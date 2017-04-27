@@ -19,6 +19,10 @@ date
 if iscommand brew; then
   declare "HomeBrew"
   brew update && brew upgrade
+  # Casks need a little bit of a work-around
+  outdated_casks="$(brew cask outdated | awk '{print $1}')"
+  echo "${outdated_casks}" | xargs brew cask reinstall
+  rm -rf "$(brew --cache)"
 fi
 if iscommand apt-get; then
   declare "apt-get"
