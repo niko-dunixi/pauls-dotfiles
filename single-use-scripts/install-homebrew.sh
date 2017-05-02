@@ -11,15 +11,9 @@ brew update && brew upgrade
 PACKAGES=( 'bash-completion' 'brew-cask-completion' 'm-cli' 'wget' 'coreutils' \
             'chromedriver' 'boost' 'boost-python' 'exercism' 'gradle' 'imagemagick' \
             'graphviz' 'git' 'git-secrets' 'maven' 'clang-format' 'node' 'tree' 'cmake' \
-<<<<<<< HEAD
             'kotlin' 'qemu' 'libvirt' 'mas' )
-CASK_PACKAGES=( 'atom' 'docker' 'kitematic' 'vagrant' 'virtualbox' 'firefox' )
-
-=======
-            'kotlin' 'qemu' 'libvirt' )
 CASK_PACKAGES=( 'atom' 'docker' 'kitematic' 'vagrant' 'virtualbox' 'firefox' \
                 'xquartz' 'java' )
->>>>>>> bb5536bd5a2bc8f8add1d06130aea53d314aa3ac
 function enterkey
 {
   echo ""
