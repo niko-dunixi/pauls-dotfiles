@@ -8,6 +8,7 @@ function iscommand
 
 function declare
 {
+  echo ""
   echo "----------------------------------------"
   echo "-  Updating ${@}"
   echo "----------------------------------------"
@@ -17,7 +18,7 @@ clear
 date
 
 if iscommand brew; then
-  declare "HomeBrew"
+  declare "Homebrew"
   brew update && brew upgrade
   # Casks need a little bit of a work-around
   outdated_casks="$(brew cask outdated | awk '{print $1}')"
@@ -28,6 +29,10 @@ if iscommand brew; then
   outdated_casks="${outdated_casks##real-vnc}"
   echo "${outdated_casks}" | xargs brew cask reinstall
   rm -rf "$(brew --cache)"
+fi
+if iscommand mas; then
+  declare "Mac Application Store"
+  mas upgrade
 fi
 if iscommand apt-get; then
   declare "apt-get"
