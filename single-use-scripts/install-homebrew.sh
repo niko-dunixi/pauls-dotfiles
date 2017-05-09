@@ -13,7 +13,7 @@ PACKAGES=( 'bash-completion' 'brew-cask-completion' 'm-cli' 'wget' 'coreutils' \
             'graphviz' 'git' 'git-secrets' 'maven' 'clang-format' 'node' 'tree' 'cmake' \
             'kotlin' 'qemu' 'libvirt' 'mas' )
 CASK_PACKAGES=( 'atom' 'docker' 'kitematic' 'vagrant' 'virtualbox' 'firefox' \
-                'xquartz' 'java' )
+                'xquartz' 'java' 'android-sdk' 'android-ndk' )
 function enterkey
 {
   echo ""
