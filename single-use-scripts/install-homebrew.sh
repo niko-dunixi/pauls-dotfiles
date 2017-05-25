@@ -10,10 +10,10 @@ fi
 brew update && brew upgrade
 PACKAGES=( 'bash-completion' 'brew-cask-completion' 'm-cli' 'wget' 'coreutils' \
             'chromedriver' 'boost' 'boost-python' 'exercism' 'gradle' 'imagemagick' \
-            'graphviz' 'git' 'git-secrets' 'maven' 'clang-format' 'node' 'tree' 'cmake' \
+            'graphviz' 'git' 'hg' 'git-secrets' 'maven' 'clang-format' 'node' 'tree' 'cmake' \
             'kotlin' 'qemu' 'libvirt' 'mas' )
 CASK_PACKAGES=( 'atom' 'docker' 'kitematic' 'vagrant' 'virtualbox' 'firefox' \
-                'xquartz' 'java' 'android-sdk' 'android-ndk' )
+                'xquartz' 'java' 'android-sdk' 'android-ndk' 'haskell-platform' )
 function enterkey
 {
   echo ""
