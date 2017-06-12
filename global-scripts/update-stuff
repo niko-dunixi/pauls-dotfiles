@@ -51,3 +51,7 @@ if iscommand exercism; then
   declare "Exercism"
   exercism upgrade
 fi
+if iscommand mas; then
+  declare "OSX Software Center (via mas)"
+  mas upgrade
+fi
