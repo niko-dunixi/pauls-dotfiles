@@ -40,7 +40,10 @@ if iscommand apt-get; then
 fi
 if iscommand npm; then
   declare "NPM"
+  # This may be managed by brew, which will render the package
+  # itself ineffective. This is fine.
   npm install npm@latest -g
+  # These packages are only managed by node.
   npm update -g
 fi
 if iscommand apm; then
@@ -50,8 +53,4 @@ fi
 if iscommand exercism; then
   declare "Exercism"
   exercism upgrade
-fi
-if iscommand mas; then
-  declare "OSX Software Center (via mas)"
-  mas upgrade
 fi
