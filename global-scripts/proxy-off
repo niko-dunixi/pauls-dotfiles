@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+set -e
+sudo networksetup -setwebproxystate "Wi-Fi" off
+sudo networksetup -setwebproxystate "Thunderbolt Ethernet Slot 1" off
