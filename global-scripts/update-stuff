@@ -38,6 +38,13 @@ if iscommand apt-get; then
   declare "apt-get"
   sudo apt-get update && sudo apt-get upgrade
 fi
+if iscommand pip; then
+  declare "pip"
+  # - list all outdated pip packages
+  # - if we're past the first two lines, print out the first column
+  # - pass the package name back to pip to upgrade the package
+  pip list --outdated --format=columns | awk 'NR>2 { print $1 } ' | xargs -I{} pip install {} --upgrade
+fi
 if iscommand npm; then
   declare "NPM"
   # This may be managed by brew, which will render the package
