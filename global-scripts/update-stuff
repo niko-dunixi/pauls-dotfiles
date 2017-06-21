@@ -39,7 +39,7 @@ if iscommand pip; then
   # - list all outdated pip packages
   # - if we're past the first two lines, print out the first column
   # - pass the package name back to pip to upgrade the package
-  pip list --outdated --format=columns | awk 'NR>2 { print $1 } ' | xargs -I{} pip install {} --upgrade
+  pip list --outdated --format=columns | awk 'NR>2 { print $1 }' | xargs -I{} pip install {} --upgrade
 fi
 if iscommand npm; then
   declare "NPM"
