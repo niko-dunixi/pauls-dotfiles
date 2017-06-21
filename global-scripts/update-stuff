@@ -22,11 +22,7 @@ if iscommand brew; then
   brew update && brew upgrade
   # Casks need a little bit of a work-around
   outdated_casks="$(brew cask outdated | awk '{print $1}')"
-  # There is a bug preventing us from uninstalling (and
-  # therefore reinstalling) real-vnc, so we have to skip it
-  # https://github.com/caskroom/homebrew-cask/issues/32300
   # http://tldp.org/LDP/abs/html/string-manipulation.html
-  outdated_casks="${outdated_casks##real-vnc}"
   echo "${outdated_casks}" | xargs brew cask reinstall
   rm -rf "$(brew --cache)"
 fi
