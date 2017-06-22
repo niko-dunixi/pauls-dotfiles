@@ -26,9 +26,9 @@ if iscommand brew; then
   echo "${outdated_casks}" | xargs brew cask reinstall
   rm -rf "$(brew --cache)"
 fi
-if iscommand mas; then
-  declare "Mac Application Store"
-  mas upgrade
+if iscommand softwareupdate; then
+  declare "softwareupdate"
+  softwareupdate --install --all
 fi
 if iscommand apt-get; then
   declare "apt-get"
