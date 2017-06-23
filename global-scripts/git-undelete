@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# https://stackoverflow.com/a/1113140/1478636
+for file in "${@}"; do
+  git checkout $(git rev-list -n 1 HEAD -- "$file")^ -- "$file"
+done
