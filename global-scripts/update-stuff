@@ -17,6 +17,12 @@ function declare
 clear
 date
 
+if iscommand conda; then
+  declare "conda"
+  conda upgrade conda -y
+  conda upgrade --all -y
+  conda clean -tp -y
+fi
 if iscommand brew; then
   declare "Homebrew"
   brew update && brew upgrade
@@ -39,6 +45,10 @@ if iscommand pip; then
   # - list all outdated pip packages
   # - if we're past the first two lines, print out the first column
   # - pass the package name back to pip to upgrade the package
+  # echo "Need to sudo to fix pip caches. These suck, I know."
+  # sudo chown -R $USER:staff ~/Library/Caches/pip
+  # sudo chown -R $USER:staff /tmp/pip-*
+  # sudo rm -rf /tmp/pip-*
   pip list --outdated --format=columns | awk 'NR>2 { print $1 }' | xargs -I{} pip install {} --upgrade
 fi
 if iscommand pip3; then
