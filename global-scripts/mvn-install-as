@@ -13,7 +13,7 @@ function setmvn()
 original_version="$(mvn org.apache.maven.plugins:maven-help-plugin:2.1.1:evaluate -Dexpression=project.version|grep -Ev '(^\[|Download\w+:)')"
 
 setmvn "${1}"
-mvn install -Dmaven.test.skip=true
+mvn install -Dmaven.test.skip=true -Dgithub.site.skip=true
 if [ $? -ne 0 ]; then
   echo "=========================="
   echo "= THIS FAILED TO INSTALL ="
