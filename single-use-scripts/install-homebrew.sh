@@ -15,6 +15,7 @@ PACKAGES=( 'bash-completion' 'brew-cask-completion' 'm-cli' 'wget' 'coreutils' \
             'wine' 'winetricks' )
 CASK_PACKAGES=( 'atom' 'docker' 'kitematic' 'vagrant' 'virtualbox' 'firefox' \
                 'xquartz' 'java' 'android-sdk' 'android-ndk' 'haskell-platform' \
+		'qlvideo'
                  )
 function enterkey
 {
