@@ -12,7 +12,7 @@ PACKAGES=( 'bash-completion' 'brew-cask-completion' 'm-cli' 'wget' 'coreutils' \
             'chromedriver' 'boost' 'boost-python' 'exercism' 'gradle' 'imagemagick' \
             'graphviz' 'git' 'hg' 'git-secrets' 'maven' 'clang-format' 'node' 'tree' 'cmake' \
             'kotlin' 'qemu' 'libvirt' 'mas' 'unrar' 'python' 'python3' 'mitmproxy' \
-            'wine' 'winetricks' )
+            'wine' 'winetricks' 'zsh' )
 CASK_PACKAGES=( 'atom' 'docker' 'kitematic' 'vagrant' 'virtualbox' 'firefox' \
                 'xquartz' 'java' 'android-sdk' 'android-ndk' 'haskell-platform' \
 		'qlvideo'
