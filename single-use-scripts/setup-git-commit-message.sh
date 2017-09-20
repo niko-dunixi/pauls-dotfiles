@@ -7,13 +7,13 @@
 TEMPLATE_FILE=~/.git-commit-template.txt
 echo "Placing template into ${TEMPLATE_FILE} and setting as default."
 cat > $TEMPLATE_FILE<<_EOF_
-# If applied, this commit will...
+# One sentence summary
 
 
-# Explain why this change is being made
+# Paragraph summary, if needed. Place extra technical details here.
 
 
-# Provide links to any relevant tickets, articles or other resources
+# Provide links to any relevant tickets, articles, or other resources
 
 
 _EOF_
