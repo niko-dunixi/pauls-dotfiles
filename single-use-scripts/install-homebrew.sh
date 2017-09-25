@@ -13,10 +13,10 @@ PACKAGES=(
   'chromedriver' 'boost' 'boost-python' 'exercism' 'gradle' 'imagemagick' \
   'graphviz' 'git' 'hg' 'git-secrets' 'maven' 'clang-format' 'node' 'tree' 'cmake' \
   'kotlin' 'qemu' 'libvirt' 'mas' 'unrar' 'python' 'python3' 'mitmproxy' \
-  'wine' 'winetricks' 'zsh' )
+  'wine' 'winetricks' 'zsh' 'which' 'shellcheck' )
 CASK_PACKAGES=(
   'atom' 'docker' 'kitematic' 'vagrant' 'virtualbox' 'firefox' \
-    'xquartz' 'java' 'android-sdk' 'android-ndk' 'google-chrome' \
+    'xquartz' 'android-sdk' 'android-ndk' 'google-chrome' \
     # 'haskell-platform' \
 		'qlvideo' 'jetbrains-toolbox' )
 function enterkey
@@ -30,7 +30,7 @@ function enterkey
 brew tap caskroom/cask
 brew tap homebrew/science
 for i in "${CASK_PACKAGES[@]}"; do
-  if brew cask ls --versions "${i}" > /dev/null; then
+  if brew cask ls --versions "${i}" &>/dev/null; then
     echo "${i} is already installed"
   else
     brew cask install "${i}"
@@ -38,7 +38,7 @@ for i in "${CASK_PACKAGES[@]}"; do
   fi
 done
 for i in "${PACKAGES[@]}"; do
-  if brew ls --versions "${i}" > /dev/null; then
+  if brew ls --versions "${i}" &>/dev/null; then
     echo "${i} is already installed"
   else
     brew install "${i}"
