@@ -27,6 +27,6 @@ done
 # Set default to Java 8
 jenv global 1.8
 jenv rehash
-# Get maven and gradle to play nice
+# Get maven and gradle to play nice (you might have to run these two commands manually)
 jenv enable-plugin maven
 jenv enable-plugin gradle
