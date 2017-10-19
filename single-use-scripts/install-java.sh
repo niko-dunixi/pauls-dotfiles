@@ -2,9 +2,14 @@
 set -e
 # Uninstall Java 9 off the bat, so we can fix our local installation
 if brew cask ls --versions "java" &>/dev/null; then
-  echo "Uninstalling Java"
+  echo "Uninstalling Java9"
   brew cask uninstall java
 fi
+if brew cask ls --versions "java8" &>/dev/null; then
+  echo "Uninstalling Java8"
+  brew cask uninstall java8
+fi
+sudo rm -rfv /Library/Java/JavaVirtualMachines/*
 # Install jenv, java8 and java9
 brew install jenv
 brew cask install caskroom/versions/java8
@@ -15,18 +20,17 @@ for java_version in ${old_versions}; do
   if [ "${java_version}" == "system" ]; then
     continue
   fi
-  echo "Un-managing: ${java_version}"
   jenv remove "${java_version}"
 done
 # Manage all currently installed versions
 for path in /Library/Java/JavaVirtualMachines/*; do
   full_path="${path}/Contents/Home"
-  echo "Now managing: ${full_path}"
   jenv add "${full_path}"
 done
 # Set default to Java 8
 jenv global 1.8
 jenv rehash
 # Get maven and gradle to play nice (you might have to run these two commands manually)
+eval "$(jenv init -)"
 jenv enable-plugin maven
 jenv enable-plugin gradle
