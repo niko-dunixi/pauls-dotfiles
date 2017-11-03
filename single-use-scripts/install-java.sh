@@ -39,6 +39,7 @@ eval "$(jenv init -)"
 jenv global 1.8
 jenv rehash
 # Get maven and gradle to play nice (you might have to run these two commands manually)
+eval "$(jenv init -)"
 jenv enable-plugin maven
 jenv enable-plugin gradle
 echo ""
