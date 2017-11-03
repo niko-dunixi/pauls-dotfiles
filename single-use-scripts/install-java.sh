@@ -34,7 +34,6 @@ for path in /Library/Java/JavaVirtualMachines/*; do
   full_path="${path}/Contents/Home"
   jenv add "${full_path}"
 done
-eval "$(jenv init -)"
 # Set default to Java 8
 jenv global 1.8
 jenv rehash
