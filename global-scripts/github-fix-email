@@ -7,6 +7,11 @@
 inside_git_repo="$(git rev-parse --is-inside-work-tree 2>/dev/null)"
 if [ "$inside_git_repo" ]; then
   echo "This is git repository. Continuing."
+  git config user.name "Paul Baker"
+  git config user.email "paul.nelson.baker@gmail.com"
+  echo "First thing's first. Setting email to the correct values to prevent this from happening again."
+  echo "Using: \"$(git config user.name)\" \"$(git config user.email)\""
+  echo ""
   github_remote_url=$(git remote -v | grep "github" | head -n 1 | awk '{print $2}') && echo $github_remote_url
   if [[ ! -z "${github_remote_url// }" ]]; then
     echo "Found github repo: ${github_remote_url}"
@@ -37,9 +42,9 @@ if [ "$inside_git_repo" ]; then
       git push --force --tags origin 'refs/heads/*'
     )
     echo "Back to: $(pwd)"
-    git config user.name "Paul Baker"
-    git config user.email "paul.nelson.baker@gmail.com"
     git pull
+  else
+    echo "Didn't find a github remote. Not proceeding."
   fi
 else
   echo "This is not a git repository. Ignoring."
