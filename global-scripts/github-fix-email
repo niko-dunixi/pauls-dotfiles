@@ -1,0 +1,46 @@
+#!/usr/bin/env bash
+
+# Thank github for providing am easy-to-use script
+# that fixes the commit history of a repositiory
+# https://help.github.com/articles/changing-author-info/
+
+inside_git_repo="$(git rev-parse --is-inside-work-tree 2>/dev/null)"
+if [ "$inside_git_repo" ]; then
+  echo "This is git repository. Continuing."
+  github_remote_url=$(git remote -v | grep "github" | head -n 1 | awk '{print $2}') && echo $github_remote_url
+  if [[ ! -z "${github_remote_url// }" ]]; then
+    echo "Found github repo: ${github_remote_url}"
+    temp_dir=$(mktemp -d)
+    echo "Using temporary directory: ${temp_dir}"
+    git clone --bare "${github_remote_url}" "${temp_dir}"
+    # Subshell, so we can automatically change back to the original directory
+    # when we're done messing around with this one.
+    (
+      cd "${temp_dir}"
+      echo "Working out of $(pwd)"
+      git filter-branch --env-filter '
+      OLD_EMAIL="paul.baker@wgu.edu"
+      CORRECT_NAME="Paul Baker"
+      CORRECT_EMAIL="paul.nelson.baker@gmail.com"
+      if [ "$GIT_COMMITTER_EMAIL" = "$OLD_EMAIL" ]
+      then
+          export GIT_COMMITTER_NAME="$CORRECT_NAME"
+          export GIT_COMMITTER_EMAIL="$CORRECT_EMAIL"
+      fi
+      if [ "$GIT_AUTHOR_EMAIL" = "$OLD_EMAIL" ]
+      then
+          export GIT_AUTHOR_NAME="$CORRECT_NAME"
+          export GIT_AUTHOR_EMAIL="$CORRECT_EMAIL"
+      fi
+      ' --tag-name-filter cat -- --branches --tags
+
+      git push --force --tags origin 'refs/heads/*'
+    )
+    echo "Back to: $(pwd)"
+    git config user.name "Paul Baker"
+    git config user.email "paul.nelson.baker@gmail.com"
+    git pull
+  fi
+else
+  echo "This is not a git repository. Ignoring."
+fi
