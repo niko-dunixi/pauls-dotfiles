@@ -13,7 +13,7 @@ PACKAGES=(
   'chromedriver' 'boost' 'boost-python' 'exercism' 'gradle' 'imagemagick' \
   'graphviz' 'git' 'hg' 'git-secrets' 'maven' 'clang-format' 'node' 'tree' 'cmake' \
   'kotlin' 'qemu' 'libvirt' 'mas' 'unrar' 'python' 'python3' 'mitmproxy' \
-  'wine' 'winetricks' 'zsh' 'shellcheck' )
+  'wine' 'winetricks' 'zsh' 'shellcheck' 'jq' 'awscli' )
 CASK_PACKAGES=(
   'atom' 'docker' 'kitematic' 'vagrant' 'virtualbox' 'firefox' \
     'xquartz' 'android-sdk' 'android-ndk' 'google-chrome' \
