@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+set -e
+# Ignore all the typical C/C++ stuff.
+curl "https://www.gitignore.io/api/c%2Cvim%2Cosx%2Cc%2B%2B%2Clinux%2Ccmake%2Cwindows%2Cintellij%2Cintellij%2Ball%2Cintellij%2Biml%2Cqt" --output .gitignore

@@ -17,6 +17,11 @@ function declare
 clear
 date
 
+# This doesn't work for zsh, we need to figure out a work-around
+if iscommand upgrade_oh_my_zsh; then
+  declare "oh my zsh"
+  upgrade_oh_my_zsh
+fi
 if iscommand conda; then
   declare "conda"
   conda upgrade conda -y
