@@ -17,12 +17,6 @@ function declare
 clear
 date
 
-if iscommand conda; then
-  declare "conda"
-  conda upgrade conda -y
-  conda upgrade --all -y
-  conda clean -tp -y
-fi
 if iscommand brew; then
   declare "Homebrew"
   brew update && brew upgrade
@@ -39,6 +33,12 @@ fi
 if iscommand apt-get; then
   declare "apt-get"
   sudo apt-get update && sudo apt-get upgrade
+fi
+if iscommand conda; then
+  declare "conda"
+  conda upgrade conda -y
+  conda upgrade --all -y
+  conda clean -tp -y
 fi
 if iscommand pip; then
   declare "pip"
