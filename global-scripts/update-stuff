@@ -54,24 +54,28 @@ if iscommand conda; then
   conda upgrade conda -y
   conda upgrade --all -y
   conda clean -tp -y
-fi
-if iscommand pip; then
-  declare "pip"
-  # - list all outdated pip packages
-  # - if we're past the first two lines, print out the first column
-  # - pass the package name back to pip to upgrade the package
-  # echo "Need to sudo to fix pip caches. These suck, I know."
-  # sudo chown -R $USER:staff ~/Library/Caches/pip
-  # sudo chown -R $USER:staff /tmp/pip-*
-  # sudo rm -rf /tmp/pip-*
-  pip list --outdated --format=columns | awk 'NR>2 { print $1 }' | xargs -I{} pip install {} --upgrade
-fi
-if iscommand pip3; then
-  declare "pip3"
-  # - list all outdated pip packages
-  # - if we're past the first two lines, print out the first column
-  # - pass the package name back to pip to upgrade the package
-  pip3 list --outdated --format=columns | awk 'NR>2 { print $1 }' | xargs -I{} pip3 install {} --upgrade
+else
+  # We want to update the pips manually, only if we're
+  # not managing things through conda. They get in each
+  # other's way.
+  if iscommand pip; then
+    declare "pip"
+    # - list all outdated pip packages
+    # - if we're past the first two lines, print out the first column
+    # - pass the package name back to pip to upgrade the package
+    # echo "Need to sudo to fix pip caches. These suck, I know."
+    # sudo chown -R $USER:staff ~/Library/Caches/pip
+    # sudo chown -R $USER:staff /tmp/pip-*
+    # sudo rm -rf /tmp/pip-*
+    pip list --outdated --format=columns | awk 'NR>2 { print $1 }' | xargs -I{} pip install {} --upgrade
+  fi
+  if iscommand pip3; then
+    declare "pip3"
+    # - list all outdated pip packages
+    # - if we're past the first two lines, print out the first column
+    # - pass the package name back to pip to upgrade the package
+    pip3 list --outdated --format=columns | awk 'NR>2 { print $1 }' | xargs -I{} pip3 install {} --upgrade
+  fi
 fi
 if iscommand npm; then
   declare "NPM"
