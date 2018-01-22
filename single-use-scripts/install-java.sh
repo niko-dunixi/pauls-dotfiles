@@ -23,7 +23,8 @@ fi
 brew install jenv
 mkdir -p "${HOME}/.jenv/versions/"
 brew cask install caskroom/versions/java8
-brew cask install java
+# NOTE: I'm NOT (re)installing java9 atm. mvnw and gradlew are not compatible with jenv which is a temporary deal-breaker.
+# brew cask install java
 # Remove orphans or bad previous installs so we manage things from a clean state
 old_versions="$(jenv versions --bare)"
 for java_version in ${old_versions}; do
@@ -37,7 +38,7 @@ done
 # Set default to Java 8
 jenv global 1.8
 jenv rehash
-# Get maven and gradle to play nice (you might have to run these two commands manually)
+# Get maven and gradle to play nice (you might have to run these two commands manually, but "jenv init" should make it work)
 eval "$(jenv init -)"
 jenv enable-plugin maven
 jenv enable-plugin gradle
