@@ -1,0 +1,63 @@
+tap 'caskroom/cask'
+tap 'homebrew/dupes'
+
+# standard terminal setup
+brew 'zsh'
+brew 'zsh-completions'
+brew 'coreutils'
+brew 'findutils'
+brew 'bash'
+brew 'brew-cask-completion'
+brew 'grep'
+
+# terminal utils
+brew 'tree'
+brew 'm-cli'
+brew 'wget'
+brew 'shellcheck'
+brew 'imagemagick'
+brew 'graphviz'
+brew 'unrar'
+brew 'jq'
+
+# dev specific stuff
+brew 'git'
+brew 'git-secrets'
+brew 'boost'
+brew 'boost-python'
+brew 'awscli'
+brew 'clang-format'
+brew 'cmake'
+brew 'node'
+brew 'libvirt'
+
+# wine
+brew 'wine'
+brew 'winetricks'
+
+# python
+brew 'python'
+brew 'python3'
+
+# java
+cask 'java8'
+cask 'jetbrains-toolbox'
+brew 'maven'
+brew 'gradle'
+brew 'kotlin'
+cask 'android-sdk'
+cask 'android-ndk'
+brew 'jenv'
+
+# virtualization
+brew 'qemu'
+cask 'virtualbox'
+cask 'docker'
+cask 'kitematic'
+
+# misc
+cask 'atom'
+cask 'firefox'
+cask 'google-chrome'
+brew 'chromedriver'
+brew 'exercism'
