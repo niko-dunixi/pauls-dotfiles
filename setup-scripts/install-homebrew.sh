@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 set -e
-# Install homebrew, then well install packages
+# Install homebrew, then we'll install packages
 if hash brew 2>/dev/null; then
   echo "Homebrew already installed, moving on to packages."
 else
