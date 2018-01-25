@@ -10,6 +10,13 @@ else
   /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
   echo "Homebrew installed, moving on to packages."
 fi
+
+# This is the most surefire way to point to the file without doubling
+# down on the setup-scripts part within the path
+current_directory=$(pwd)
+root_directory="${current_directory%setup-scripts}"
+brewfile_path="${root_directory}/setup-scripts/Brewfile"
+
 brew update && brew upgrade
-echo "Installing from Brewfile:"
-brew bundle
+echo "Installing from Brewfile: ${brewfile_path}"
+brew bundle --file="${brewfile_path}"

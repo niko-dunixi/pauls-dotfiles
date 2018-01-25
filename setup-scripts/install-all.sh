@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-
-install-homebrew.sh
-install-java.sh
-install-npm-packages.sh
+set -e
+./install-homebrew.sh
+./setup-java.sh
+./install-npm-packages.sh
+./install-shellscripts.sh

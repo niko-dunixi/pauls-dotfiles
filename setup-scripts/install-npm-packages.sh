@@ -12,12 +12,15 @@ function install_if_missing
   fi
 }
 
+echo "Updating NPM..."
+npm install -g npm@lts
+
 echo ""
 echo "Checking if NPM packages are installed is a costly"
 echo "opperation, so this script is slow because of NPM"
 echo ""
 
-PACKAGES=( '@angular/cli' 'splash-cli' 'ungit' 'grunt' 'appium' )
+PACKAGES=( '@angular/cli' 'splash-cli' 'grunt' 'appium' )
 for i in "${PACKAGES[@]}"; do
   install_if_missing "${i}"
 done
