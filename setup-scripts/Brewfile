@@ -1,4 +1,5 @@
 tap 'caskroom/cask'
+tap 'caskroom/versions'
 
 # standard terminal setup
 brew 'zsh'
@@ -37,6 +38,7 @@ brew 'libvirt'
 brew 'dos2unix'
 
 # wine
+cask 'xquartz'
 brew 'wine'
 brew 'winetricks'
 
