@@ -2,7 +2,9 @@
 set -e
 
 sudo chsh -s $(which zsh) "${USER}"
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+# Using forked version which enables silent install until the following issue has been merged
+# sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/Liquidsoul/oh-my-zsh/master/tools/install.sh) --silent"
 
 zshrc_file="${HOME}/.zshrc"
 echo "Using .zshrc file: ${zshrc_file}"
