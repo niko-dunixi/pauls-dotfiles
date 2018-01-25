@@ -7,7 +7,7 @@ cd "${root_directory}/global-scripts"
 for i in *; do
 	if [ -L "/usr/local/bin/${i}" ]
 	then
-		echo "${i} already symlinked in /usr/local/bin/"
+		echo "Skipping ${i}... (already symlinked in /usr/local/bin/)"
 	else
 		echo "Symlinking ${i} to /usr/local/bin/${i}"
 		ln -s "$(pwd)/${i}" "/usr/local/bin/${i}"
