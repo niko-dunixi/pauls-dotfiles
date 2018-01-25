@@ -11,4 +11,6 @@ current_directory=$(pwd)
 root_directory="${current_directory%setup-scripts}"
 zsh_custom_directory="${root_directory}/zsh-custom/"
 
-echo "source ${zsh_custom_directory}/my-aliases-exports-etc.zsh" >> ~/.zshrc
+if ! grep -Fxq "source ${zsh_custom_directory}/my-aliases-exports-etc.zsh" ~/.zshrc; then
+  echo "source ${zsh_custom_directory}/my-aliases-exports-etc.zsh" >> ~/.zshrc
+fi
