@@ -16,3 +16,4 @@ cd "${setup_scripts_directory}"
 ./install-shellscripts.sh
 ./install-oh-my-zsh.sh
 ./setup-git-commit-message.sh
+./setup-ssh-git.sh
