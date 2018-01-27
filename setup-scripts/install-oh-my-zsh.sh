@@ -7,7 +7,7 @@ sudo chsh -s $(which zsh) "${USER}"
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/Liquidsoul/oh-my-zsh/master/tools/install.sh) --silent"
 
 zshrc_file="${HOME}/.zshrc"
-echo "Using .zshrc file: ${zshrc_file}"
+printf "\nUsing .zshrc file: ${zshrc_file}\n"
 
 cp "${zshrc_file}" "${zshrc_file}.bak"
 echo "Setting default theme to 'af-magic'"
