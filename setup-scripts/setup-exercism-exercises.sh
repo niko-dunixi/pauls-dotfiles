@@ -22,3 +22,8 @@ cd "${exio_directory}"
 
 # Done message
 echo "Project has been downloaded and submodules have been recursively updated."
+
+if [ ! -L "${HOME}/git/personal/exercism" ]; then
+  mkdir -p "${HOME}/git/personal"
+  ln -s "${exio_directory}" "${HOME}/git/personal/exercism"
+fi
