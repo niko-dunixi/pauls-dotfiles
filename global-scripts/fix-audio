@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+set -e
+SwitchAudioSource -s "Elgato Dock"
