@@ -1,6 +1,10 @@
 tap 'caskroom/cask'
 tap 'caskroom/versions'
 
+# Install osx dev dependencies
+brew 'mas'
+mas "Xcode", id: 497799835
+
 # standard terminal setup
 brew 'zsh'
 brew 'zsh-completions'
@@ -20,6 +24,7 @@ brew 'imagemagick'
 brew 'graphviz'
 brew 'unrar'
 brew 'jq'
+brew 'switchaudio-osx'
 
 # dev specific stuff
 brew 'git'
