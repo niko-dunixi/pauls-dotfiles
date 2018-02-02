@@ -47,14 +47,6 @@ cask 'xquartz'
 brew 'wine'
 brew 'winetricks'
 
-# golang
-brew 'go'
-
-# python
-brew 'python'
-brew 'python3'
-cask 'anaconda'
-
 # java
 cask 'java8'
 cask 'jetbrains-toolbox'
@@ -64,6 +56,17 @@ brew 'kotlin'
 cask 'android-sdk'
 cask 'android-ndk'
 brew 'jenv'
+
+# golang
+brew 'go'
+
+# python
+brew 'python'
+brew 'python3'
+cask 'anaconda'
+
+# haskell
+cask 'haskell-platform'
 
 # virtualization
 brew 'qemu'
