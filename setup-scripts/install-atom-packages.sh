@@ -7,8 +7,11 @@ api() {
 }
 
 echo "Attempting to install atom packages..."
+api city-lights-ui
+api city-lights-syntax
+
 api language-haskell
-api haskell-ghc-mod
 api ide-haskell
+#api haskell-ghc-mod
 
 echo "Complete!"
