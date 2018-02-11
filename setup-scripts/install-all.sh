@@ -10,7 +10,13 @@ root_directory="${current_directory%setup-scripts}"
 setup_scripts_directory="${root_directory}/setup-scripts/"
 cd "${setup_scripts_directory}"
 
-./install-homebrew.sh
+my_os="$(uname)"
+
+if [ "${my_os}" == "darwin" ]; then
+  ./install-homebrew-packages.sh
+else
+  ./install-apt-packages.sh
+fi
 ./setup-java.sh
 ./install-npm-packages.sh
 ./install-shellscripts.sh
