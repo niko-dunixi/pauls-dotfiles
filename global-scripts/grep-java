@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
 
-grep -Ri "${@}" --include \*.java .
+#grep -Ri "${@}" --include \*.java .
+ack -i --java "${@}"

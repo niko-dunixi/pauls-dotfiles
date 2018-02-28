@@ -13,6 +13,7 @@ brew 'findutils'
 brew 'bash'
 brew 'brew-cask-completion'
 brew 'grep'
+brew 'ack'
 
 # terminal utils
 brew 'tree'
