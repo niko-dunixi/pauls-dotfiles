@@ -40,6 +40,7 @@ if iscommand brew; then
   # http://tldp.org/LDP/abs/html/string-manipulation.html
   echo "${outdated_casks}" | xargs brew cask reinstall
   rm -rf "$(brew --cache)"
+  brew cleanup
 fi
 if iscommand softwareupdate; then
   declare "softwareupdate"
