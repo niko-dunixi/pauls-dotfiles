@@ -32,6 +32,9 @@ date
 #   zsh -c "${INNER}"
 # fi
 # exit 1
+if iscommand check-payday; then
+  check-payday || true
+fi
 if iscommand brew; then
   declare "Homebrew"
   brew update && brew upgrade
@@ -41,6 +44,7 @@ if iscommand brew; then
   echo "${outdated_casks}" | xargs brew cask reinstall
   rm -rf "$(brew --cache)"
   brew cleanup
+  brew prune
 fi
 if iscommand softwareupdate; then
   declare "softwareupdate"
