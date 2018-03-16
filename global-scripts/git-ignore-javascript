@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+curl -o .gitignore "https://www.gitignore.io/api/osx,vim,node,linux,windows,webstorm,intellij,intellij+all,webstorm+iml,webstorm+all,intellij+iml"
