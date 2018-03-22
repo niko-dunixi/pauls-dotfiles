@@ -16,6 +16,12 @@ for source in ${custom_from_install_directory}/*.zsh; do
   ln -s "${source}" "${destination}"
 done
 
+# Download the theme I like
+mkdir -p "${ohmyzsh_custom_directory}/themes"
+if [ ! -f "${ohmyzsh_custom_directory}/themes/imp.zsh-theme" ]; then
+  curl https://raw.githubusercontent.com/igormp/Imp/master/imp.zsh-theme -L -o "${ohmyzsh_custom_directory}/themes/imp.zsh-theme"
+fi
+
 # Make changes to the zshrc file so we have our theme and plugins set
 export ohmyzsh_rc
 python3 - << END
@@ -29,11 +35,11 @@ with open(ohmyzsh_rc, 'r') as file:
     file_data = file.read()
 
 print('Setting theme')
-file_data = re.sub(r"^ZSH_THEME=\".*?\"", 'ZSH_THEME="af-magic"', file_data, flags=re.MULTILINE)
+file_data = re.sub(r"^ZSH_THEME=\".*?\"", 'ZSH_THEME="imp"', file_data, flags=re.MULTILINE)
 # Set the plugins we want
 print('Setting plugins')
 file_data = re.sub(r"^plugins=\(.*?\)",
-                  'plugins=(git node mvn gradle ng npm python web-search yarn brew docker jira aws)',
+                  'plugins=(git node mvn gradle ng npm python web-search yarn brew docker jira aws battery)',
                    file_data, flags=re.MULTILINE | re.DOTALL)
 
 print('Saving', ohmyzsh_rc)
