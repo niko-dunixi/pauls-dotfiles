@@ -36,7 +36,7 @@ file_data = re.sub(r"^plugins=\(.*?\)",
                   'plugins=(git node mvn gradle ng npm python web-search yarn brew docker jira aws)',
                    file_data, flags=re.MULTILINE | re.DOTALL)
 
-print('Setting contents back for', ohmyzsh_rc)
+print('Saving', ohmyzsh_rc)
 # Save the contents back to the zshrc file
 with open(ohmyzsh_rc, 'w') as file:
     file.write(file_data)
