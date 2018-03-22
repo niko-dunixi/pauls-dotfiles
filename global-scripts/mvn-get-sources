@@ -1,4 +1,0 @@
-#!/usr/bin/env bash
-set -e
-mvn dependency:sources
-mvn dependency:resolve -Dclassifier=javadoc
