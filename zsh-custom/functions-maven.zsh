@@ -27,7 +27,7 @@ function mvn-install-as()
 {
   if [ "${#}" -ne 1 ]; then
     echo "One and only one argument expected, which will be the artifact version."
-    return
+    return 1
   fi
   original_version="$(mvn org.apache.maven.plugins:maven-help-plugin:2.1.1:evaluate -Dexpression=project.version|grep -Ev '(^\[|Download\w+:)')"
   mvn-set-version "${1}"
@@ -45,6 +45,7 @@ function mvn-install-as()
     echo "= INSTALL WORKED LOCALLY ="
     echo "=========================="
   fi
+  return "${install_failed}"
 }
 
 function mvn-wrapify()
