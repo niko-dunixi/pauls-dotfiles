@@ -1,4 +1,0 @@
-#!/usr/bin/env bash
-set -e
-# With the improvements that have been made to the gitignore.io templates, we can just use a direct curl to them and not worry about patching in our exclusions
-curl "https://www.gitignore.io/api/osx%2Cvim%2Cjava%2Cnanoc%2Clinux%2Cemacs%2Cmaven%2Cgradle%2Cwindows%2Ceclipse%2Cnetbeans%2Cjetbrains%2Ball%2Cintellij%2Biml" --output .gitignore
