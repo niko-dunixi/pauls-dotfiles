@@ -5,14 +5,12 @@ root_directory="${current_directory%setup-scripts}"
 echo "cd ${root_directory}/global-scripts"
 cd "${root_directory}/global-scripts"
 for i in *; do
-	if [ -L "/usr/local/bin/${i}" ]
-	then
-		echo "Skipping ${i}... (already symlinked in /usr/local/bin/)"
-		echo "/usr/local/bin/${i}" >> ../installed-user-scripts.txt
-	else
-		echo "Symlinking ${i} to /usr/local/bin/${i}"
-		ln -s "$(pwd)/${i}" "/usr/local/bin/${i}"
-		chmod +x "/usr/local/bin/${i}"
-		echo "/usr/local/bin/${i}" >> ../installed-user-scripts.txt
+	destination="/usr/local/bin/${i}"
+	if [ -L "${destination}" ]; then
+		echo "Removing $(rm -v "${destination}")... (will re-link)"
 	fi
+	echo "Symlinking ${i} to ${destination}"
+	ln -s "$(pwd)/${i}" "${destination}"
+	chmod +x "${destination}"
+	echo "${destination}" >> ../installed-user-scripts.txt
 done
