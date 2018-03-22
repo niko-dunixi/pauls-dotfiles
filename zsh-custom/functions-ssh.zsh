@@ -7,13 +7,14 @@ function ssh-create-keys()
     return 1
   fi
   ssh_dir="${HOME}/.ssh/"
-  if [ ! -f "${ssh_dir}/id_${1}" ]; then
-    ssh-keygen -t rsa -b 4096 -C "${2}" -f "${ssh_dir}/id_${1}"
+  ssh_file="${ssh_dir}/id_${1}"
+  if [ ! -f "${ssh_file}" ]; then
+    ssh-keygen -t rsa -b 4096 -C "${2}" -f "${ssh_file}"
     eval "$(ssh-agent -s)"
-    ssh-add -K "${ssh_dir}/id_${1}"
+    ssh-add -K "${ssh_file}"
     return 0
   else
-    echo "id_${1} already exists"
+    echo "${ssh_file} already exists"
     return 1
   fi
 }
