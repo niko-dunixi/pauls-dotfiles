@@ -1,2 +1,0 @@
-#!/usr/bin/env bash
-curl "https://www.gitignore.io/api/go%2Cvim%2Cosx%2Clinux%2Cwindows%2Cintellij%2Cintellij%2Ball%2Cintellij%2Biml" --output .gitignore
