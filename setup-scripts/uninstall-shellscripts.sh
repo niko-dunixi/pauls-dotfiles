@@ -11,7 +11,7 @@ fi
 echo "Uninstalling installed shellscripts"
 cat "${installed_scripts_file}" | while read script_symlink; do
 	if [ -L "${script_symlink}" ]; then
-		rm -v "Unlinking: ${script_symlink}"
+		echo "Unlinking: $(rm -v ${script_symlink})"
 	else
 		echo "Not symlinked, skipped: ${script_symlink}"
 	fi

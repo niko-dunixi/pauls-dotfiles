@@ -8,10 +8,11 @@ for i in *; do
 	if [ -L "/usr/local/bin/${i}" ]
 	then
 		echo "Skipping ${i}... (already symlinked in /usr/local/bin/)"
+                echo "/usr/local/bin/${i}" >> ../installed-user-scripts.txt
 	else
 		echo "Symlinking ${i} to /usr/local/bin/${i}"
 		ln -s "$(pwd)/${i}" "/usr/local/bin/${i}"
 		chmod +x "/usr/local/bin/${i}"
-    echo "/usr/local/bin/${i}" >> ../installed-user-scripts.txt
+                echo "/usr/local/bin/${i}" >> ../installed-user-scripts.txt
 	fi
 done
