@@ -14,6 +14,11 @@ if [ ! -f "${ssh_dir}/id_rsa_github" ]; then
 else
   echo "id_rsa_github already exists"
 fi
+if [ ! -f "${ssh_dir}/id_rsa_codecommit" ]; then
+  ssh-keygen -t rsa -b 4096 -C "paul.nelson.baker@gmail.com" -f "${ssh_dir}/id_rsa_codecommit"
+else
+  echo "id_rsa_codecommit already exists"
+fi
 
 # dump the config file into it. It has some nice things, like
 # telling github to use ssh over https, because some coffee shops
@@ -47,4 +52,5 @@ EOSC
 eval "$(ssh-agent -s)"
 ssh-add -K "${ssh_dir}/id_rsa_wgu"
 ssh-add -K "${ssh_dir}/id_rsa_github"
+ssh-add -K "${ssh_dir}/id_rsa_codecommit"
 ssh-copy-id -i "${ssh_dir}/id_rsa_wgu" mac-build-server

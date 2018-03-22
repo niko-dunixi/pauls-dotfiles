@@ -39,6 +39,7 @@ if [ "$inside_git_repo" ]; then
       fi
       ' --tag-name-filter cat -- --branches --tags
 
+      #git push --force --set-upstream origin master
       git push --force --tags origin 'refs/heads/*'
     )
     echo "Back to: $(pwd)"

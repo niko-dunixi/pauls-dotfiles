@@ -35,7 +35,7 @@ with open(ohmyzsh_rc, 'r') as file:
     file_data = file.read()
 
 print('Setting theme')
-file_data = re.sub(r"^ZSH_THEME=\".*?\"", 'ZSH_THEME="imp"', file_data, flags=re.MULTILINE)
+file_data = re.sub(r"^ZSH_THEME=\".*?\"", 'ZSH_THEME="af-magic"', file_data, flags=re.MULTILINE)
 # Set the plugins we want
 print('Setting plugins')
 file_data = re.sub(r"^plugins=\(.*?\)",
