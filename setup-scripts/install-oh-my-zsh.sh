@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 set -e
 
+ohmyzsh_rc="${HOME}/.zshrc"
 ohmyzsh_custom_directory="${HOME}/.oh-my-zsh/custom"
-
 sudo chsh -s $(which zsh) "${USER}"
 # Using forked version which enables silent install until the following issue has been merged
 # sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/Liquidsoul/oh-my-zsh/master/tools/install.sh) --silent"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/Liquidsoul/oh-my-zsh/master/tools/install.sh) --silent || true"
 
 #zshrc_file="${HOME}/.zshrc"
 #printf "\nUsing .zshrc file: ${zshrc_file}\n"
@@ -18,15 +18,21 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/Liquidsoul/oh-my-zsh/maste
 #echo "Enabling plugins"
 #perl -0777pe 's/plugins=\(.*?\)/plugins=(git node mvn gradle ng npm python web-search yarn brew docker jira aws)/sg' "${zshrc_file}.bak" > "${zshrc_file}"
 #
+
+# Link our custom stuff
 current_directory=$(pwd)
 root_directory="${current_directory%setup-scripts}"
 custom_from_install_directory="${root_directory}/zsh-custom/"
-
-for i in "${custom_from_install_directory}/*.zsh"; do
-  if [ -L "${i}" ]; then
-    ln -s "${i}" "${ohmyzsh_custom_directory}/$(basename ${i})"
+for source in ${custom_from_install_directory}/*.zsh; do
+  destination="${ohmyzsh_custom_directory}/$(basename ${source})"
+  if [ -L "${destination}" ]; then
+    echo "Unlinking: $(rm -v "${destination}")"
   fi
+  echo ln -s "${source}" "${destination}"
+  ln -s "${source}" "${destination}"
 done
+
+
 
 # cp "${zshrc_file}" "${zshrc_file}.bak"
 # echo "Enabling custom directory"
