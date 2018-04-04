@@ -36,7 +36,7 @@ echo "1 - Be impeccable with your word."
 echo "2 - Don't take anything personally."
 echo "3 - Don't make assumptions."
 echo "4 - Always do your best."
-printf "\nThere are no men, only your brothers. There are no women, only your sisters. We are family. Love unconditionally.\n\n"
+printf "\nThere are no men, only your brothers.\nThere are no women, only your sisters.\nWe are family.\nLove unconditionally.\n\n"
 if iscommand check-payday; then
   check-payday || true
 fi
