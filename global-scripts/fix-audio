@@ -1,16 +1,28 @@
 #!/usr/bin/env bash
 set -e
-function has_device()
-{
+# Get all devices by name
+# SwitchAudioSource -a | grep "(output)" | awk '{$NF=""; print $0}'
+
+# Check if a device is connected
+function has_device() {
   SwitchAudioSource -a | grep "${@}" > /dev/null
 }
-if has_device "Method Wireless"; then
-  SwitchAudioSource -s "Method Wireless"
-  echo "Switching to Method Wireless"
-elif has_device "Elgato Dock"; then
-  SwitchAudioSource -s "Elgato Dock"
-  echo "Switching to Elgato Dock"
-else
-  SwitchAudioSource -s "Build-in Output"
-  echo "Switching to Built-in Output"
-fi
+
+function set_device() {
+  SwitchAudioSource -s "${@}"
+  echo "Switching to ${@}"
+}
+
+# Check for devices and attempt to set them one by one
+function check_and_set_audio() {
+  for device in "${@}"; do
+    if has_device "${device}"; then
+      set_device "${device}"
+      exit 0
+    fi
+  done
+  echo "Could not find desired devices."
+  set_device "Build-in Output"
+}
+
+check_and_set_audio "Method Wireless" "Elgato Dock"
