@@ -1,3 +1,16 @@
 #!/usr/bin/env bash
 set -e
-SwitchAudioSource -s "Elgato Dock"
+function has_device()
+{
+  SwitchAudioSource -a | grep "${@}" > /dev/null
+}
+if has_device "Method Wireless"; then
+  SwitchAudioSource -s "Method Wireless"
+  echo "Switching to Method Wireless"
+elif has_device "Elgato Dock"; then
+  SwitchAudioSource -s "Elgato Dock"
+  echo "Switching to Elgato Dock"
+else
+  SwitchAudioSource -s "Build-in Output"
+  echo "Switching to Built-in Output"
+fi
