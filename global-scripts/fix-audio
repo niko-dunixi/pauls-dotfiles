@@ -10,7 +10,6 @@ function has_device() {
 
 function set_device() {
   SwitchAudioSource -s "${@}"
-  echo "Switching to ${@}"
 }
 
 # Check for devices and attempt to set them one by one
