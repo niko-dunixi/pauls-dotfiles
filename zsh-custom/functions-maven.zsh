@@ -35,6 +35,7 @@ function mvn-install-as()
   install_failed="${?}"
   # Rest back to original name for the sake of version control."
   mvn-set-version "${original_version}"
+  find "${HOME}/.m2/repository/" -type f -iname "*.repositories" -exec rm -v \{\} \;
   #  If the install failed, let me know!
   if [[ "${install_failed}" -ne "0" ]]; then
     echo "=========================="
