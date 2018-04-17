@@ -1,6 +1,20 @@
 #!/usr/bin/env bash
 set -e
 
+function header
+{
+  clear
+  date
+  echo "1 - Be impeccable with your word."
+  echo "2 - Don't take anything personally."
+  echo "3 - Don't make assumptions."
+  echo "4 - Always do your best."
+  printf "\nThere are no men, only your brothers.\nThere are no women, only your sisters.\nWe are family.\nLove unconditionally.\n\n"
+  if iscommand check-payday; then
+    check-payday || true
+  fi
+}
+
 function iscommand
 {
   hash "${1}" 2>/dev/null
@@ -14,9 +28,7 @@ function declare
   echo "----------------------------------------"
 }
 
-clear
-date
-
+header
 # if iscommand zsh; then
 #   echo "doing zsh stuff"
 # INNER=$(cat <<- EOZ
@@ -32,14 +44,6 @@ date
 #   zsh -c "${INNER}"
 # fi
 # exit 1
-echo "1 - Be impeccable with your word."
-echo "2 - Don't take anything personally."
-echo "3 - Don't make assumptions."
-echo "4 - Always do your best."
-printf "\nThere are no men, only your brothers.\nThere are no women, only your sisters.\nWe are family.\nLove unconditionally.\n\n"
-if iscommand check-payday; then
-  check-payday || true
-fi
 if iscommand brew; then
   declare "Homebrew"
   brew update && brew upgrade
@@ -105,5 +109,6 @@ if iscommand apm; then
 fi
 if iscommand exercism; then
   declare "Exercism"
-  exercism upgrade
+  exercism upgrade || echo "Exercism is having issues again. Not really a problem, they usually resolve them within an hour or so."
 fi
+header
