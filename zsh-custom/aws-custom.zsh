@@ -16,3 +16,8 @@ function aws-token-refresh()
 {
   aws-adfs login --profile=master --adfs-host=adfs.wgu.edu
 }
+
+function validate-template()
+{
+  aws-paul cloudformation validate-template --template-body "file://${@}"
+}
