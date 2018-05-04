@@ -64,9 +64,9 @@ if iscommand softwareupdate; then
   # echo "If it gets overwritten anyway, see the intermediate solution here: https://github.com/derekparker/delve/issues/1165"
   echo "If GoLand stopped working follow this for the moment: https://youtrack.jetbrains.com/issue/GO-5527"
 fi
-if iscommand apt; then
-  declare "apt"
-  sudo apt update && sudo apt upgrade
+if iscommand apt-get; then
+  declare "apt-get"
+  sudo apt-get update && sudo apt-get upgrade
 fi
 if iscommand conda; then
   declare "conda"
