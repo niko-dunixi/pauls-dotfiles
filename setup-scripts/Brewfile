@@ -43,6 +43,7 @@ brew 'cmake'
 brew 'node'
 brew 'libvirt'
 brew 'dos2unix'
+brew 'jmeter'
 
 # wine
 cask 'xquartz'
