@@ -70,6 +70,7 @@ if iscommand apt-get; then
 fi
 if iscommand conda; then
   declare "conda"
+  echo "If you have trouble with permissions, fix them via: sudo chown -v -R \"${USER}:admin\" /usr/local/anaconda3/*"
   conda upgrade conda -y
   conda upgrade --all -y
   conda clean -tp -y
