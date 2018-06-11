@@ -60,9 +60,6 @@ fi
 if iscommand softwareupdate; then
   declare "softwareupdate"
   softwareupdate --install --all
-  # echo "We've disabled software updating at this time. It overwrites the dev tools which we need to debug Go applications in GoLand."
-  # echo "If it gets overwritten anyway, see the intermediate solution here: https://github.com/derekparker/delve/issues/1165"
-  echo "If GoLand stopped working follow this for the moment: https://youtrack.jetbrains.com/issue/GO-5527"
 fi
 if iscommand apt-get; then
   declare "apt-get"
