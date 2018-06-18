@@ -53,3 +53,8 @@ function mvn-wrapify()
 {
   mvn -N io.takari:maven:wrapper
 }
+
+function mvn-create-javafx()
+{
+  mvn archetype:generate -DarchetypeGroupId=com.zenjava -DarchetypeArtifactId=javafx-basic-archetype
+}
