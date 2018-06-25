@@ -15,3 +15,8 @@ function gradle-from-maven()
     mv "pom.xml" ".pom.xml.$(date +%s).backup"
   fi
 }
+
+function create-java-folder-struct()
+{
+  mkdir -p ./src/{main,test}/java
+}
