@@ -18,7 +18,7 @@ function gradle-from-maven()
 
 function create-java-folder-struct()
 {
-  mkdir -p ./src/{main,test}/java
+  mkdir -p ./src/{main,test}/{java,resources}
 }
 
 function gradle-init-kotlin-native()
