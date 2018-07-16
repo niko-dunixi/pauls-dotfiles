@@ -19,4 +19,39 @@ function gradle-from-maven()
 function create-java-folder-struct()
 {
   mkdir -p ./src/{main,test}/{java,resources}
+<<<<<<< HEAD
+=======
+}
+
+function gradle-init-kotlin-native()
+{
+  [ ! -z "${1}" ] || fail
+  mkdir -p "${1}/src/main/kotlin"
+  (
+    echo "buildscript {"
+    echo "  repositories {"
+    echo "    mavenCentral()"
+    echo "    maven {"
+    echo "      url \"https://dl.bintray.com/jetbrains/kotlin-native-dependencies\""
+    echo "    }"
+    echo "  }"
+    echo "  dependencies {"
+    echo "    classpath \"org.jetbrains.kotlin:kotlin-native-gradle-plugin:+\""
+    echo "  }"
+    echo "}"
+    echo ""
+    echo "apply plugin: 'konan'"
+    echo ""
+    echo "konan.targets = ['macbook', 'linux', 'mingw']"
+    echo ""
+    echo "konanArtifacts {"
+    echo "  program('hello')"
+    echo "}"
+  ) > "${1}/build.gradle"
+  (
+    echo "fun main(args: Array<String>) {"
+    echo "  println(\"Hello Gradle!\")"
+    echo "}"
+  ) > "${1}/src/main/kotlin/hello.kt"
+>>>>>>> 8b3cfb13cdcc9a40ae48501f457b0ab18ff53fbc
 }
