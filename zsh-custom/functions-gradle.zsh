@@ -19,8 +19,6 @@ function gradle-from-maven()
 function create-java-folder-struct()
 {
   mkdir -p ./src/{main,test}/{java,resources}
-<<<<<<< HEAD
-=======
 }
 
 function gradle-init-kotlin-native()
@@ -53,5 +51,4 @@ function gradle-init-kotlin-native()
     echo "  println(\"Hello Gradle!\")"
     echo "}"
   ) > "${1}/src/main/kotlin/hello.kt"
->>>>>>> 8b3cfb13cdcc9a40ae48501f457b0ab18ff53fbc
 }
