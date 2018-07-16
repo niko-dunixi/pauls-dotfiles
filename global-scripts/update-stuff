@@ -31,21 +31,10 @@ function declare
 }
 
 header
-# if iscommand zsh; then
-#   echo "doing zsh stuff"
-# INNER=$(cat <<- EOZ
-#   # if type upgrade_oh_my_zsh ; then
-#   if [[ -o login ]]; then
-#     upgrade_oh_my_zsh
-#   else
-#     echo "ZSH, but no omz"
-#   fi
-# EOZ
-# )
-#   echo "inner:: ${INNER}"
-#   zsh -c "${INNER}"
-# fi
-# exit 1
+if [ -d "${HOME}/.oh-my-zsh" ]; then
+  declare "oh-my-zsh"
+  git -C "${HOME}/.oh-my-zsh" pull
+fi
 if iscommand brew; then
   declare "Homebrew"
   brew update && brew upgrade
