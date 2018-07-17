@@ -6,27 +6,27 @@ function git-ignore()
 
 function git-ignore-java()
 {
-  git-ignore "osx,vim,java,nanoc,linux,emacs,maven,gradle,windows,eclipse,netbeans,jetbrains+all,intellij+iml"
+  git-ignore "osx,vim,java,nanoc,linux,emacs,maven,gradle,windows,eclipse,netbeans,jetbrains+all,intellij+iml,microsoftoffice"
 }
 
 function git-ignore-cpp()
 {
-  git-ignore "c,vim,osx,c++,linux,cmake,windows,jetbrains+all,intellij,intellij+all,intellij+iml,qt"
+  git-ignore "c,vim,osx,c++,linux,cmake,windows,jetbrains+all,intellij,intellij+all,intellij+iml,qt,microsoftoffice"
 }
 
 function git-ignore-golang()
 {
-  git-ignore "go,vim,osx,linux,windows,intellij,intellij+all,intellij+iml"
+  git-ignore "go,vim,osx,linux,windows,intellij,intellij+all,intellij+iml,microsoftoffice"
 }
 
 function git-ignore-haskell()
 {
-  git-ignore "vim,osx,linux,windows,haskell,intellij,sublimetext,intellij+all,intellij+iml"
+  git-ignore "vim,osx,linux,windows,haskell,intellij,sublimetext,intellij+all,intellij+iml,microsoftoffice"
 }
 
 function git-ignore-javascript()
 {
-  git-ignore "osx,vim,node,linux,windows,webstorm,intellij,intellij+all,webstorm+iml,webstorm+all,intellij+iml"
+  git-ignore "osx,vim,node,linux,windows,webstorm,intellij,intellij+all,webstorm+iml,webstorm+all,intellij+iml,microsoftoffice"
 }
 
 function git-ignore-node()
@@ -41,5 +41,5 @@ function git-ignore-js()
 
 function git-ignore-python()
 {
-  git-ignore "osx,vim,linux,python,windows,intellij,virtualenv,intellij+all,intellij+iml"
+  git-ignore "osx,vim,linux,python,windows,intellij,virtualenv,intellij+all,intellij+iml,microsoftoffice"
 }
