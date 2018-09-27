@@ -21,7 +21,8 @@ function check_and_set_audio() {
     fi
   done
   echo "Could not find desired devices."
-  set_device "Built-in Output (output)"
+  exit 1
+  #set_device "Built-in Output (output)"
 }
 
-check_and_set_audio "Method Wireless" "Elgato Dock"
+check_and_set_audio "SB2 Wireless" "Method Wireless" "Elgato Dock"
