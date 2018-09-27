@@ -5,13 +5,13 @@ function header
 {
   clear
   date
-  echo "1 - Be impeccable with your word."
-  echo "2 - Don't take anything personally."
-  echo "3 - Don't make assumptions."
-  echo "4 - Always do your best."
-  echo ""
-#  printf "\nThere are no men, only your brothers.\nThere are no women, only your sisters.\nWe are family.\nLove unconditionally.\n\n"
-  printf "Remember, love unconditionally\n\n"
+  #echo "1 - Be impeccable with your word."
+  #echo "2 - Don't take anything personally."
+  #echo "3 - Don't make assumptions."
+  #echo "4 - Always do your best."
+  #echo ""
+  #printf "Remember, love unconditionally\n\n"
+  printf "Remember, dude, you gotta have fun.\nIf you're not having fun, you're doing it wrong.\n\n"
   if iscommand check-payday; then
     check-payday || true
   fi
