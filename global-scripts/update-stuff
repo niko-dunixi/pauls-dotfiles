@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-set -e
 
 function header
 {
@@ -31,6 +30,24 @@ function declare
 }
 
 header
+# if [ -d "${HOME}/projects" ]; then
+#   # declare "~/projects .... eventually."
+#   if iscommand git; then
+#     declare "~/projects (Git)"
+#     # https://stackoverflow.com/a/29510077/1478636
+#     find "${HOME}/projects" -name ".git" -type d | \
+#       sed 's/\/.git//' | \
+#       xargs -t -P10 -Igit_directory git -C git_directory fetch --all
+#   fi
+#   # if iscommand hg; then
+#   #   declare "~/projects (Mercurial)"
+#   #   echo "Not yet implemented."
+#   # fi
+#   # if iscommand svn; then
+#   #   declare "~/projects (SVN)"
+#   #   echo "Not yet implemented... maybe it shouldn't be lol"
+#   # fi
+# fi
 if [ -d "${HOME}/.oh-my-zsh" ]; then
   declare "oh-my-zsh"
   git -C "${HOME}/.oh-my-zsh" pull
@@ -88,7 +105,7 @@ if iscommand npm; then
   # This may be managed by brew, which will render the package
   # itself ineffective. This is fine.
   # npm install npm@latest -g
-  #npm install -g npm@lts
+  npm install -g npm@lts
   # These packages are only managed by node.
   npm update -g
 fi
