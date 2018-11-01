@@ -14,7 +14,7 @@ function aws-paul()
 
 function aws-token-refresh()
 {
-  aws-adfs login --profile=master --adfs-host=adfs.wgu.edu
+  PYTHONWARNINGS="ignore" aws-adfs login --profile=master --adfs-host=adfs.wgu.edu --no-ssl-verification
 }
 
 function validate-template()
