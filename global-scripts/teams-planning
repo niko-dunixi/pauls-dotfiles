@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+set -e
+teams_url='msteams:/l/meetup-join/19:aa983173bc6f460a86aed7c95c49296d@thread.skype/1535556636512?context=%7b%22Tid%22%3a%22cfa792cf-7768-4341-8857-81754c2afa1f%22%2c%22Oid%22%3a%226ff78487-9eff-4f79-9ac9-74693a6aa91f%22%7d&anon=true&deeplinkId=f284dd84-a069-49a4-f0aa-b07347c1d405'
+open "${teams_url}"
