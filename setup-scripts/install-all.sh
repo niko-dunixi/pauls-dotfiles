@@ -12,7 +12,7 @@ setup_scripts_directory="${root_directory}/setup-scripts/"
 cd "${setup_scripts_directory}"
 # OSX or Linux?
 my_os="$(uname)"
-if [ "${my_os}" == "darwin" ]; then
+if [ "${my_os}" == "Darwin" ]; then
   ./install-homebrew-packages.sh
 else
   ./install-apt-packages.sh
