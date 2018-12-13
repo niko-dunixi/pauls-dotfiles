@@ -79,6 +79,7 @@ cask 'kitematic'
 #cask 'parallels'
 
 # misc
+cask 'snagit'
 cask 'visual-studio-code'
 cask 'firefox'
 cask 'google-chrome'
