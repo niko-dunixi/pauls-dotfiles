@@ -26,9 +26,10 @@ brew 'jq'
 brew 'switchaudio-osx'
 
 # dev specific stuff
-cask 'chef-workstation'
 brew 'git'
 brew 'git-secrets'
+cask 'gitkraken'
+cask 'chef-workstation'
 brew 'boost'
 brew 'boost-python'
 #brew 'sdl'
