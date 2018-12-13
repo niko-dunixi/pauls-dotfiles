@@ -1,5 +1,6 @@
 tap 'caskroom/cask'
 tap 'caskroom/versions'
+tap 'chef/chef'
 
 # standard terminal setup
 brew 'zsh'
@@ -25,6 +26,7 @@ brew 'jq'
 brew 'switchaudio-osx'
 
 # dev specific stuff
+cask 'chef-workstation'
 brew 'git'
 brew 'git-secrets'
 brew 'boost'
@@ -74,9 +76,9 @@ brew 'qemu'
 cask 'virtualbox'
 cask 'docker'
 cask 'kitematic'
+#cask 'parallels'
 
 # misc
-# cask 'atom'
 cask 'visual-studio-code'
 cask 'firefox'
 cask 'google-chrome'
