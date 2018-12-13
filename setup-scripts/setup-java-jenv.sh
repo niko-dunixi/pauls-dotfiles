@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 set -e
 
+mkdir -p "${HOME}/.jenv/versions/"
+
 old_versions="$(jenv versions --bare)"
 for java_version in ${old_versions}; do
   jenv remove "${java_version}"
