@@ -10,6 +10,7 @@ brew 'bash'
 brew 'brew-cask-completion'
 brew 'grep'
 brew 'ack'
+brew 'gpg2'
 
 # terminal utils
 brew 'tree'

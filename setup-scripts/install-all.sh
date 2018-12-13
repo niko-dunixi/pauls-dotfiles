@@ -18,6 +18,7 @@ else
   ./install-apt-packages.sh
 fi
 ./setup-java-jenv.sh
+./setup-ruby-rvm.sh
 ./install-npm-packages.sh
 ./install-shellscripts.sh
 ./install-oh-my-zsh.sh
