@@ -93,3 +93,8 @@ brew 'geckodriver'
 brew 'exercism'
 brew 'ffmpeg'
 brew 'youtube-dl'
+
+mas 'Magnet', id: 441258766
+mas 'iHosts', id: 1102004240
+mas 'Telegram', id: 747648890
+mas 'Cuppa - Tea Timer', id: 1297865739
