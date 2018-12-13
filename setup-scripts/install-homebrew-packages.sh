@@ -17,6 +17,12 @@ current_directory=$(pwd)
 root_directory="${current_directory%setup-scripts}"
 brewfile_path="${root_directory}/setup-scripts/Brewfile"
 
+rm -rfv "${HOME}/Library/Caches/Homebrew/*"
+brew cleanup -s
 brew update && brew upgrade
+# Install XCode and make sure its license has been accepted
+brew install mas
+mas install 497799835
+sudo xcodebuild -license accept
 echo "Installing from Brewfile: ${brewfile_path}"
 brew bundle --file="${brewfile_path}"

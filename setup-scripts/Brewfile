@@ -1,10 +1,6 @@
 tap 'caskroom/cask'
 tap 'caskroom/versions'
 
-# Install osx dev dependencies
-brew 'mas'
-mas "Xcode", id: 497799835
-
 # standard terminal setup
 brew 'zsh'
 brew 'zsh-completions'
@@ -66,10 +62,11 @@ brew 'go'
 # python
 brew 'python'
 brew 'python3'
-cask 'anaconda'
+# Disabling anaconda, usually more tempermental than it's worth
+# cask 'anaconda'
 
-# haskell
-cask 'haskell-platform'
+# haskell, this cask seems to be dead.
+# cask 'haskell-platform'
 
 # virtualization
 brew 'qemu'
@@ -78,7 +75,8 @@ cask 'docker'
 cask 'kitematic'
 
 # misc
-cask 'atom'
+# cask 'atom'
+cask 'visual-studio-code'
 cask 'firefox'
 cask 'google-chrome'
 cask 'gimp'
@@ -89,7 +87,7 @@ cask 'sourcetree'
 cask 'spotify'
 cask 'tunnelbear'
 cask 'xscreensaver'
-brew 'chromedriver'
+cask 'chromedriver'
 brew 'geckodriver'
 brew 'exercism'
 brew 'ffmpeg'
