@@ -4,21 +4,24 @@ set -e
 # make the directory if it doesn't exist
 ssh_dir="${HOME}/.ssh"
 
-if [ ! -f "${ssh_dir}/id_rsa_wgu" ]; then
-  ssh-keygen -t rsa -b 4096 -C "paul.baker@wgu.edu" -f "${ssh_dir}/id_rsa_wgu"
-else
-  echo "id_rsa_wgu already exists"
-fi
-if [ ! -f "${ssh_dir}/id_rsa_github" ]; then
-  ssh-keygen -t rsa -b 4096 -C "paul.nelson.baker@gmail.com" -f "${ssh_dir}/id_rsa_github"
-else
-  echo "id_rsa_github already exists"
-fi
-if [ ! -f "${ssh_dir}/id_rsa_codecommit" ]; then
-  ssh-keygen -t rsa -b 4096 -C "paul.nelson.baker@gmail.com" -f "${ssh_dir}/id_rsa_codecommit"
-else
-  echo "id_rsa_codecommit already exists"
-fi
+function gen_ssh_key()
+{
+  ssh_file="${ssh_dir}/id_rsa_${1}"
+  echo "Working: ${ssh_file}"
+  if [ ! -f "${ssh_file}" ]; then
+    ssh-keygen -t rsa -b 4096 -C "${2}" -f "${ssh_file}"
+  else
+    echo "${ssh_file} already exists"
+  fi
+  ssh-add -K "${ssh_file}"
+}
+
+# Startup the agent so we can add our keys (ssh-add)
+eval "$(ssh-agent -s)"
+
+gen_ssh_key wgu "paul.baker@wgu.edu"
+gen_ssh_key github "paul.nelson.baker@gmail.com"
+gen_ssh_key aws "paul.nelson.baker@gmail.com"
 
 # dump the config file into it. It has some nice things, like
 # telling github to use ssh over https, because some coffee shops
@@ -29,12 +32,6 @@ Host *
   AddKeysToAgent yes
   IdentityFile ~/.ssh/id_rsa_wgu
 
-Host checkit-dev
-  UseKeychain yes
-  AddKeysToAgent yes
-  Hostname 172.27.14.88
-  IdentityFile ~/.ssh/id_rsa_wgu
-
 Host github.com
   HostName ssh.github.com
   User git
@@ -42,15 +39,5 @@ Host github.com
   UseKeychain yes
   AddKeysToAgent yes
   IdentityFile ~/.ssh/id_rsa_github
-
-Host mac-build-server
-  Hostname 10.50.7.91
-  IdentityFile ~/.ssh/id_rsa_wgu
 EOSC
 
-# Now we need to add our keys to the keychain
-eval "$(ssh-agent -s)"
-ssh-add -K "${ssh_dir}/id_rsa_wgu"
-ssh-add -K "${ssh_dir}/id_rsa_github"
-ssh-add -K "${ssh_dir}/id_rsa_codecommit"
-ssh-copy-id -i "${ssh_dir}/id_rsa_wgu" mac-build-server
