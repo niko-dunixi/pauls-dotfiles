@@ -15,6 +15,7 @@ cd "${setup_scripts_directory}"
 my_os="$(uname)"
 if [ "${my_os}" == "Darwin" ]; then
   ./install-homebrew-packages.sh
+  ./setup-osx-defaults.sh
 else
   ./install-apt-packages.sh
 fi
