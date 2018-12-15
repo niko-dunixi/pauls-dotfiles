@@ -20,4 +20,4 @@ eval "$(jenv init -)"
 jenv enable-plugin maven
 jenv enable-plugin gradle
 echo ""
-jenv init || exit 0
+eval "$(jenv init -)" || exit 0
