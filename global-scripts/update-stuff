@@ -105,7 +105,7 @@ if iscommand npm; then
   # This may be managed by brew, which will render the package
   # itself ineffective. This is fine.
   # npm install npm@latest -g
-  npm install -g npm@lts
+  npm install -g npm@next
   # These packages are only managed by node.
   npm update -g
 fi
