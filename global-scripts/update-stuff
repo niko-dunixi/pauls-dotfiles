@@ -67,9 +67,9 @@ if iscommand softwareupdate; then
   declare "softwareupdate"
   softwareupdate --install --all
 fi
-if iscommand apt-get; then
-  declare "apt-get"
-  sudo apt-get update && sudo apt-get upgrade
+if iscommand apt; then
+  declare "apt update --fix-missing && apt upgrade -y"
+  sudo apt update --fix-missing && sudo apt upgrade -y
 fi
 if iscommand conda; then
   declare "conda"
