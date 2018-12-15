@@ -4,5 +4,11 @@ set -e
 curl https://sh.rustup.rs -sSf | sh -s -- -y
 # Need to source the file so this install script can add additional packages
 source $HOME/.cargo/env
+
+function cargo_install()
+{
+  cargo install "${@}" || echo "Failed to install '${@}', it may already be installed."
+}
+
 # Install rust centric stuff
-cargo install ripgrep # We COULD install with brew, but we miss out on SIMD
+cargo_install ripgrep
