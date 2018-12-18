@@ -67,9 +67,9 @@ if iscommand softwareupdate; then
   declare "softwareupdate"
   softwareupdate --install --all
 fi
-if iscommand apt-get; then
-  declare "apt-get"
-  sudo apt-get update && sudo apt-get upgrade
+if iscommand apt; then
+  declare "apt update --fix-missing && apt upgrade -y"
+  sudo apt update --fix-missing && sudo apt upgrade -y
 fi
 if iscommand conda; then
   declare "conda"
@@ -105,7 +105,7 @@ if iscommand npm; then
   # This may be managed by brew, which will render the package
   # itself ineffective. This is fine.
   # npm install npm@latest -g
-  npm install -g npm@lts
+  npm install -g npm@next
   # These packages are only managed by node.
   npm update -g
 fi

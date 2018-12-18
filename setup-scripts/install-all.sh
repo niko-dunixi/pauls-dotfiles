@@ -10,7 +10,6 @@ current_directory="$(pwd)"
 root_directory="${current_directory%setup-scripts}"
 setup_scripts_directory="${root_directory}/setup-scripts/"
 cd "${setup_scripts_directory}"
-./unlock-hosts-file.sh
 # OSX or Linux?
 my_os="$(uname)"
 if [ "${my_os}" == "Darwin" ]; then

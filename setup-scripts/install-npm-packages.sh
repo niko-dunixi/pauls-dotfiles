@@ -8,21 +8,21 @@ function install_if_missing
   else
     echo ""
     echo "Installing ${1}"
-    command="npm install -g ${1}"
+    command="sudo -H npm install -g ${1}"
     echo "Running: ${command}"
-    $command
+    $command || echo "Failed to run: ${command}"
   fi
 }
 
 echo "Updating NPM..."
-npm install -g npm@lts
+sudo -H npm install -g npm@next || echo "Couldn't update NPM to npm@next"
 
 echo ""
 echo "Checking if NPM packages are installed is a costly"
 echo "opperation, so this script is slow because of NPM"
 echo ""
 
-PACKAGES=( '@angular/cli' 'splash-cli' 'grunt' 'appium' 'aws-sam-local' )
+PACKAGES=( 'npx' )
 for i in "${PACKAGES[@]}"; do
   install_if_missing "${i}"
 done

@@ -29,6 +29,7 @@ gen_ssh_key aws "paul.nelson.baker@gmail.com"
 cat >"${HOME}/.ssh/config" << EOSC
 Host *
   UseKeychain yes
+  User paul.baker
   AddKeysToAgent yes
   IdentityFile ~/.ssh/id_rsa_wgu
 
@@ -39,5 +40,8 @@ Host github.com
   UseKeychain yes
   AddKeysToAgent yes
   IdentityFile ~/.ssh/id_rsa_github
+
+Host ai-legacy
+  HostName webapp-l249a.wgu.edu
 EOSC
 

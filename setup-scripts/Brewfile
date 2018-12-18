@@ -1,6 +1,7 @@
 tap 'caskroom/cask'
 tap 'caskroom/versions'
 tap 'chef/chef'
+tap 'aws/tap'
 
 # standard terminal setup
 brew 'zsh'
@@ -38,6 +39,7 @@ brew 'boost-python'
 #brew 'sdl_ttf'
 brew 'sdl2{,_image,_ttf,_mixer}'
 brew 'awscli'
+brew 'aws-sam-cli'
 brew 'clang-format'
 brew 'cmake'
 brew 'node'
