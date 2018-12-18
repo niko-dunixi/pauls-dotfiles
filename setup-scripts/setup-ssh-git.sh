@@ -3,6 +3,7 @@ set -e
 
 # make the directory if it doesn't exist
 ssh_dir="${HOME}/.ssh"
+chmod -R 700 ~/.ssh
 
 function gen_ssh_key()
 {
