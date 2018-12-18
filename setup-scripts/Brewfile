@@ -45,6 +45,9 @@ brew 'libvirt'
 brew 'dos2unix'
 brew 'jmeter'
 
+# data
+cask 'mysql-shell'
+
 # wine
 cask 'xquartz'
 brew 'wine'
