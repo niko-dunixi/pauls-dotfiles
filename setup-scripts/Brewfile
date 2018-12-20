@@ -102,6 +102,7 @@ brew 'geckodriver'
 brew 'exercism'
 brew 'ffmpeg'
 brew 'youtube-dl'
+cask 'google-backup-and-sync'
 
 mas 'Magnet', id: 441258766
 mas 'iHosts', id: 1102004240
