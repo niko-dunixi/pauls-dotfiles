@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+for port in "${@}"; do
+  # For some reason getting the process id in one line breaks,
+  # so I've split it into two commands 
+  process_data="$(lsof -nP -i4TCP:"${port}" | grep LISTEN)"
+  if [ ! -z "${process_data}" ]; then
+    process_id="$(echo ${process_data} | awk '{ print $2 }')"
+  fi
+  # If we didn't find a process id, then move on to the next
+  # port to check.
+  if [ -z "${process_id}" ]; then
+    continue
+  fi
+  # We found a port. Kill the app
+  echo "Found process ${process_id} bound to localhost:${port}, sending SIGHUP"
+  kill "${process_id}"
+done
