@@ -46,6 +46,7 @@ brew 'node'
 brew 'libvirt'
 brew 'dos2unix'
 brew 'jmeter'
+cask 'scenebuilder'
 
 # data
 cask 'mysql-shell'
