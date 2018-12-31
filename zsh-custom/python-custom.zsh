@@ -7,7 +7,6 @@ function iscommand
 }
 
 for py_version in $(ls "${HOME}/Library/Python/"); do
-  echo "${py_version}"
   export PATH="${PATH}:${HOME}/Library/Python/${py_version}/bin"
 done
 
