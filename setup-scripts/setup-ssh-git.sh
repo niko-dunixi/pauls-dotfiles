@@ -23,6 +23,7 @@ eval "$(ssh-agent -s)"
 gen_ssh_key wgu "paul.baker@wgu.edu"
 gen_ssh_key github "paul.nelson.baker@gmail.com"
 gen_ssh_key aws "paul.nelson.baker@gmail.com"
+gen_ssh_key bitbucket "paul.nelson.baker@gmail.com"
 
 # dump the config file into it. It has some nice things, like
 # telling github to use ssh over https, because some coffee shops
@@ -41,6 +42,11 @@ Host github.com
   UseKeychain yes
   AddKeysToAgent yes
   IdentityFile ~/.ssh/id_rsa_github
+
+Host bitbucket.org
+  UseKeychain yes
+  AddKeysToAgent yes
+  IdentityFile ~/.ssh/id_rsa_bitbucket
 
 Host ai-legacy
   HostName webapp-l249a.wgu.edu
