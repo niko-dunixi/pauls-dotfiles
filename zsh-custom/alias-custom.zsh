@@ -5,3 +5,8 @@ function date-utc()
 {
   date -u +"%Y-%m-%dT%H:%M:%SZ"
 }
+
+function shrug()
+{
+  echo '¯\_(ツ)_/¯'
+}
