@@ -47,6 +47,7 @@ cask 'scenebuilder'
 
 # data
 cask 'mysql-shell'
+cask 'sequel-pro'
 
 # wine
 cask 'xquartz'
