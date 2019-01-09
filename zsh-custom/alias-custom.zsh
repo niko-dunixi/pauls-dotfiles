@@ -10,3 +10,13 @@ function shrug()
 {
   echo '¯\_(ツ)_/¯'
 }
+
+function interobang()
+{
+  echo '‽'
+}
+
+function interobang-paul()
+{
+  echo "$(interobang)aul Baker!"
+}
