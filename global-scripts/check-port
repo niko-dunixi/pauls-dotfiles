@@ -1,8 +1,0 @@
-#!/usr/bin/env bash
-set -e
-
-if [ -z "${1}" ]; then
-  echo "You need to provide a port to check"
-  exit 1
-fi
-lsof -nP -i4TCP:"${1}" | grep LISTEN
