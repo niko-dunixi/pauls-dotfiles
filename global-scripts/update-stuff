@@ -61,7 +61,6 @@ if iscommand brew; then
   echo "${outdated_casks}" | xargs brew cask reinstall
   rm -rf "$(brew --cache)"
   brew cleanup
-  brew prune
 fi
 if iscommand softwareupdate; then
   declare "softwareupdate"
