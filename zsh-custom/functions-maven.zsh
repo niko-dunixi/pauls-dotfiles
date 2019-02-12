@@ -11,6 +11,11 @@ function mvn-get-deps()
   mvn dependency:resolve-plugins
 }
 
+function mvn-purge()
+{
+  mvn dependency:purge-local-repository
+}
+
 function mvn-get-sources()
 {
   mvn dependency:sources
