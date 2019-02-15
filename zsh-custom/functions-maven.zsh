@@ -15,6 +15,7 @@ function mvn-docker() {
   current_directory="${current_path##*/}"
   # We now invoke docker.
   #  '--it' tells docker this command is interactive.
+  #  '--rm' after this image has run to completion, docker will remove it (important since we're using the --name parameter)
   #  '--name' gives the current execution a name. This is used to enforce a singleton
   #      instance of maven in this current directory since Docker can run as many instances
   #      as we tell it to.
