@@ -1,12 +1,30 @@
 #!/usr/bin/env zsh
 
 function mvn-docker() {
+  # Functions can only take arguments, which we want to get from the user so
+  # we can pass them directly to docker. This is why we set the version of maven
+  # via environment variable. If it's not set (EG: we're invoking it manually) the
+  # function exits with a non-zero exit code.
   if [ -z "${MAVEN_DOCKER_TAG}" ] ; then
     echo "Set the MAVEN_DOCKER_TAG env variable before continuing"
     exit 1
   fi
+  # We get the current path and we use some bash substituion to just get the current
+  # directory's name.
   current_path="$(pwd)"
   current_directory="${current_path##*/}"
+  # We now invoke docker.
+  #  '--it' tells docker this command is interactive.
+  #  '--name' gives the current execution a name. This is used to enforce a singleton
+  #      instance of maven in this current directory since Docker can run as many instances
+  #      as we tell it to.
+  #  '-v' This is the 'volume' we want to mount. We want to mount two of them in this case
+  #      The first one is our local .m2 directory. We don't want it to download all the artifacts
+  #      and their dependendies over and over again. It's a slow process, which kills productivity
+  #      The second one is the current directory. This lets the docker image believe it's
+  #      in the same directory we currently are in, which is the project folder
+  #   '-w' The current working directory within the docker container. This was what we mounted
+  #      the project folder to in the prior argument. It's arbitrary.
   docker run -it --rm --name "maven-${current_directory}" \
     -v "${HOME}/.m2:/root/.m2" \
     -v "$(pwd):/usr/src/mymaven" \
