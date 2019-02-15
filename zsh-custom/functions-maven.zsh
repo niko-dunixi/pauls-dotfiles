@@ -1,5 +1,30 @@
 #!/usr/bin/env zsh
 
+function mvn-docker() {
+  if [ -z "${MAVEN_DOCKER_TAG}" ] ; then
+    echo "Set the MAVEN_DOCKER_TAG env variable before continuing"
+    exit 1
+  fi
+  current_path="$(pwd)"
+  current_directory="${current_path##*/}"
+  docker run -it --rm --name "maven-${current_directory}" \
+    -v "${HOME}/.m2:/root/.m2" \
+    -v "$(pwd):/usr/src/mymaven" \
+    -w /usr/src/mymaven "maven:${MAVEN_DOCKER_TAG}" mvn "${@}"
+}
+
+function mvn-jdk-8() {
+  MAVEN_DOCKER_TAG="3.6-jdk-8" mvn-docker "${@}"
+}
+
+function mvn-jdk-11() {
+  MAVEN_DOCKER_TAG="3.6-jdk-11" mvn-docker "${@}"
+}
+
+function mvn() {
+  mvn-jdk-11 "${@}"  
+}
+
 function mvn-purge-deps()
 {
   mvn dependency:purge-local-repository
@@ -40,7 +65,7 @@ function mvn-install-as()
   install_failed="${?}"
   # Rest back to original name for the sake of version control."
   mvn-set-version "${original_version}"
-  find "${HOME}/.m2/repository/" -type f -iname "*.repositories" -exec rm -v \{\} \;
+  #find "${HOME}/.m2/repository/" -type f -iname "*.repositories" -exec rm -v \{\} \;
   #  If the install failed, let me know!
   if [[ "${install_failed}" -ne "0" ]]; then
     echo "=========================="
