@@ -7,6 +7,10 @@ function git-ignore-java() {
   git-ignore "osx,vim,java,nanoc,linux,emacs,maven,gradle,windows,eclipse,netbeans,jetbrains+all,intellij+iml,microsoftoffice"
 }
 
+function git-ignore-rust() {
+  git-ignore "c,vim,osx,c++,linux,cmake,emacs,nanoc,eclipse,windows,intellij,jetbrains,sublimetext,intellij+iml,intellij+all,jetbrains+iml,jetbrains+all,microsoftoffice"
+}
+
 function git-ignore-cpp() {
   git-ignore "c,vim,osx,c++,linux,cmake,windows,jetbrains+all,intellij,intellij+all,intellij+iml,qt,microsoftoffice"
 }
