@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 function git-ignore() {
-  commonly_ignored="vim,osx,linux,emacs,nanoc,eclipse,windows,intellij,jetbrains,sublimetext,intellij+iml,intellij+all,jetbrains+iml,jetbrains+all,microsoftoffice"
+  commonly_ignored="vim,osx,linux,emacs,nanoc,eclipse,windows,intellij,jetbrains,sublimetext,intellij+iml,intellij+all,jetbrains+iml,jetbrains+all,microsoftoffice,exercism"
   all_ignored="${commonly_ignored},${@}"
   curl -L -s "https://www.gitignore.io/api/${all_ignored}"
 }
