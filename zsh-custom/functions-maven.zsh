@@ -13,6 +13,8 @@ function mvn-docker() {
   # directory's name.
   current_path="$(pwd)"
   current_directory="${current_path##*/}"
+  current_maven="maven:${MAVEN_DOCKER_TAG}"
+  echo "${current_maven}"
   # We now invoke docker.
   #  '--it' tells docker this command is interactive.
   #  '--rm' after this image has run to completion, docker will remove it (important since we're using the --name parameter)
@@ -29,7 +31,7 @@ function mvn-docker() {
   docker run -it --rm --name "maven-${current_directory}" \
     -v "${HOME}/.m2:/root/.m2" \
     -v "$(pwd):/usr/src/mymaven" \
-    -w /usr/src/mymaven "maven:${MAVEN_DOCKER_TAG}" mvn "${@}"
+    -w /usr/src/mymaven "${current_maven}" mvn "${@}"
 }
 
 function mvn-jdk-8() {
