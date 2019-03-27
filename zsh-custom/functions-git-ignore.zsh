@@ -10,7 +10,7 @@ function git-ignore-java() {
 }
 
 function git-ignore-rust() {
-  git-ignore "c,c++,cmake"
+  git-ignore "c,c++,cmake,rust"
 }
 
 function git-ignore-cpp() {
