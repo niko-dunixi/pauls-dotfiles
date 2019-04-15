@@ -42,9 +42,9 @@ function mvn-jdk-11() {
   MAVEN_DOCKER_TAG="3.6-jdk-11" mvn-docker "${@}"
 }
 
-function mvn() {
-  mvn-jdk-11 "${@}"  
-}
+# function mvn() {
+#   mvn-jdk-11 "${@}"  
+# }
 
 function mvn-purge-deps()
 {

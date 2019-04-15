@@ -1,15 +1,15 @@
 #!/usr/bin/env zsh
-alias ll="ls -alh"
+#alias ll="ls -alFh"
 
-function date-utc()
-{
-  date -u +"%Y-%m-%dT%H:%M:%SZ"
-}
+#function date-utc()
+#{
+#  date -u +"%Y-%m-%dT%H:%M:%SZ"
+#}
 
-function shrug()
-{
-  echo '¯\_(ツ)_/¯'
-}
+#function shrug()
+#{
+#  echo '¯\_(ツ)_/¯'
+#}
 
 function interobang()
 {
